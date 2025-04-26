@@ -53,6 +53,8 @@ class HomeSliderService
             }
 
             $home->title = $request->title;
+            $home->color_1 = $request->color_1;
+            $home->color_2 = $request->color_2;
             $home->description = $request->description;
             $home->product_id = $request->product_id;
             $home->category_id = $request->category_id;

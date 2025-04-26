@@ -130,6 +130,28 @@
                                 <small v-if="errors['description']" class="error-msg">{{errors['description'] }}</small>
                             </b-col>
                         </b-row>
+                        <b-row class="mb-1 bRowPosition">
+                            <b-col class="blockInput title_hov_top" v-b-tooltip.hover data-title="color_1">
+                                <b-form-input
+                                    :class="[errors['color_1'] ? 'error-border' : '', 'addFormInputs']"
+                                    v-model="homeSlider.color_1"
+                                    type="color"
+                                    placeholder="color_1"
+                                ></b-form-input>
+                                <small v-if="errors['color_1']" class="error-msg">{{ errors['color_1'] }}</small>
+                            </b-col>
+                        </b-row>
+                        <b-row class="mb-1 bRowPosition">
+                            <b-col class="blockInput title_hov_top" v-b-tooltip.hover data-title="color_2">
+                                <b-form-input
+                                    :class="[errors['color_2'] ? 'error-border' : '', 'addFormInputs']"
+                                    v-model="homeSlider.color_2"
+                                    type="color"
+                                    placeholder="color_2"
+                                ></b-form-input>
+                                <small v-if="errors['color_2']" class="error-msg">{{ errors['color_2'] }}</small>
+                            </b-col>
+                        </b-row>
                         <b-row class="mb-1 images">
                             <b-col v-b-tooltip.hover data-title="image"
                                    class='blockInput images title_hov_center'>
@@ -377,6 +399,8 @@
                     image_path_src: '',
                     small_image_path: '',
                     small_image_path_src: '',
+                    color_1: '',
+                    color_2: '',
                 },
                 homeSlider_id: '',
                 addOrEdit: 'add',
@@ -532,6 +556,8 @@
                 self.homeSlider_id = obj ? obj.id : "";
                 self.homeSlider.title = obj ? obj.title : "";
                 self.homeSlider.description = obj ? obj.description : "";
+                self.homeSlider.color_1 = obj ? obj.color_1 : "";
+                self.homeSlider.color_2 = obj ? obj.color_2 : "";
                 self.homeSlider.product_id = obj ? obj.product_id : "";
                 self.getProducts(function () {
                     self.homeSlider.product_id = {
@@ -660,6 +686,8 @@
                 self.homeSlider = {
                     title : "",
                     description : "",
+                    color_1 : "",
+                    color_2 : "",
                     product_id : "",
                     category_id : "",
                     image_path : "",
