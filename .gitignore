@@ -1,0 +1,56 @@
+# Composer dependencies
+/vendor
+
+# Laravel specific
+/storage/*.key
+/storage/logs/*
+/storage/framework/*
+/storage/app/*
+/storage/testing/*
+
+# Backup files
+*.bak
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Laravel specific
+.phpunit.cache
+/public/build
+/public/hot
+/public/storage
+/public/index.php  # Added entry to ignore index.php
+/public/js/app.js
+/public/css/app.css
+/public/storage/*
+
+
+# Environment files
+.env
+.env.backup
+.env.production
+
+# Testing
+.phpunit.result.cache
+
+# Homestead
+Homestead.json
+Homestead.yaml
+
+# Composer
+composer.lock
+# package-lock
+package-lock.josn
+# NPM
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs
+/.idea
+/.vscode
+
+# Fleet
+/.fleet

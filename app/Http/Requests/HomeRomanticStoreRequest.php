@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\Auth;
+
+class HomeRomanticStoreRequest extends FailedValidation
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $rule = [
+            'title_one' => 'required|string|max:150',
+            'description_one' => 'required|string|max:300',
+            'title_two' => 'required|string|max:150',
+            'description_two' => 'required|string|max:300',
+            'title_three' => 'required|string|max:150',
+            'description_three' => 'required|string|max:300',
+        ];
+
+        if ($this->has("image_path") and $this->hasFile("image_path")) {
+            $rule['image_path'] = 'required|mimes:jpeg,png,jpg';
+        }
+        if ($this->has("image_path_two") and $this->hasFile("image_path_two")) {
+            $rule['image_path_two'] = 'required|mimes:jpeg,png,jpg';
+        }
+        if ($this->has("image_path_three") and $this->hasFile("image_path_three")) {
+            $rule['image_path_three'] = 'required|mimes:jpeg,png,jpg';
+        }
+        if ($this->has("small_image_path") and $this->hasFile("small_image_path")) {
+            $rule['small_image_path'] = 'required|mimes:jpeg,png,jpg';
+        }
+
+        return $rule;
+
+    }
+
+/*    public function messages()
+    {
+        return [
+            'id.exists' => __('variable.not_found_error'),
+            'name.required' => __('variable.this_field_is_required'),
+            'name.string' => __('variable.this_field_is_required_and_has_been_text'),
+            'name.max' => __('variable.max_150_error'),
+            'email.required' => __('variable.this_field_is_required'),
+            'email.email' => __('variable.wrong_email'),
+            'email.unique' => __('variable.already_exist_error'),
+            'email.max' => __('variable.max_150_error'),
+            'password.required' => __('variable.this_field_is_required'),
+            'password.confirmed' => __('variable.wrong_passwords'),
+            'password.min' => __('variable.min_password_error'),
+            'role_id.*.exists' => __('variable.not_found_error'),
+            'permission_id.*.exists' => __('variable.not_found_error'),
+            'organization_id.required' => __('variable.this_field_is_required'),
+        ];
+    }*/
+}
